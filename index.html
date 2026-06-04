@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<link rel="manifest" href="manifest.json">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Mis canciones</title>
 <style>
@@ -281,5 +282,13 @@ document.getElementById('btn-prev').addEventListener('click', playPrev);
 
 render();
 </script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js')
+    .then(() => console.log('SW registrado'))
+    .catch(err => console.log(err));
+}
+</script>
+
 </body>
 </html>
